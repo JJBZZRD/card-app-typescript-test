@@ -5,11 +5,12 @@ import { EntryContext } from "../utilities/globalContext";
 
 export default function EditEntry() {
   const { id } = useParams();
-  const emptyEntry: Entry = { title: "", description: "", created_at: new Date() };
+  const emptyEntry: Entry = { title: "", description: "", created_at: new Date(), scheduled_date: new Date() };
 
   const { updateEntry, entries } = useContext(EntryContext) as EntryContextType;
   const [newEntry, setNewEntry] = useState<Entry>(emptyEntry);
-
+  let navigate = useNavigate();
+  
   useEffect(() => {
     const entry = entries.filter((entry) => entry.id == id)[0];
     setNewEntry(entry);
@@ -40,6 +41,19 @@ export default function EditEntry() {
         value={newEntry.description}
         onChange={handleInputChange}
       />
+      <label htmlFor="scheduled_date" className="text-xs text-gray-900 dark:text-gray-100">
+        Scheduled Date
+      </label>
+      <input
+        className="p-3 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+        type="date"
+        name="scheduled_date"
+        value={newEntry.scheduled_date ? new Date(newEntry.scheduled_date).toISOString().split("T")[0] : ""}
+        onChange={handleInputChange}
+      />
+      <label htmlFor="created_at" className="text-xs text-gray-900 dark:text-gray-100">
+        Created At
+      </label>
       <input
         className="p-3 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
         type="date"
@@ -50,6 +64,7 @@ export default function EditEntry() {
       <button
         onClick={(e) => {
           handleSend(e);
+          navigate("/");
         }}
         className="bg-blue-400 dark:bg-blue-600 hover:bg-blue-600 dark:hover:bg-blue-800 font-semibold text-white p-3 rounded-md"
       >

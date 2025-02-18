@@ -1,6 +1,7 @@
 import { ChangeEvent, MouseEvent, useContext, useState } from "react";
 import { Entry, EntryContextType } from "../@types/context";
 import { EntryContext } from "../utilities/globalContext";
+import { useNavigate } from "react-router-dom";
 
 export default function NewEntry() {
   const emptyEntry: Entry = { title: "", description: "", created_at: new Date(), scheduled_date: new Date() };
@@ -16,6 +17,7 @@ export default function NewEntry() {
     saveEntry(newEntry);
     setNewEntry(emptyEntry);
   };
+  let navigate = useNavigate();
   return (
     <section className="flex justify-center flex-col w-fit ml-auto mr-auto mt-10 gap-5 bg-gray-300 dark:bg-gray-700 p-8 rounded-md">
       <input
@@ -56,6 +58,7 @@ export default function NewEntry() {
       <button
         onClick={(e) => {
           handleSend(e);
+          navigate("/");
         }}
         className="bg-blue-400 dark:bg-blue-600 hover:bg-blue-600 dark:hover:bg-blue-800 font-semibold text-white p-3 rounded-md"
       >

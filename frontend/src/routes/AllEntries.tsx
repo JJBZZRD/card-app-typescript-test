@@ -53,9 +53,24 @@ export default function AllEntries() {
                   🖊
                 </button>
               </div>
-              <time className="text-right text-sm md:text-lg text-gray-900 dark:text-gray-300">
-                {new Date(entry.created_at.toString()).toLocaleDateString()}
-              </time>
+              <div className="flex flex-col items-end">
+                <small className="text-xs text-gray-600 dark:text-gray-400">
+                  Scheduled Date
+                </small>
+                <time className="text-right text-sm md:text-lg text-gray-900 dark:text-gray-300">
+                  {entry.scheduled_date
+                    ? new Date(entry.scheduled_date.toString()).toLocaleDateString()
+                    : "No scheduled date"}
+                </time>
+              </div>
+              <div className="flex flex-col items-end">
+                <small className="text-xs text-gray-600 dark:text-gray-400">
+                  Created At
+                </small>
+                <time className="text-right text-sm md:text-lg text-gray-900 dark:text-gray-300">
+                  {new Date(entry.created_at.toString()).toLocaleDateString()}
+                </time>
+              </div>
             </section>
           </div>
         );
