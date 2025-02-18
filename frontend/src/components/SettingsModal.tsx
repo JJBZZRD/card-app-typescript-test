@@ -3,7 +3,7 @@ import { Fragment, useState } from "react";
 import useDarkMode from "../hooks/useDarkMode";
 
 export default function SettingsModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
-    const [darkMode, setDarkMode] = useDarkMode();
+  const [darkMode, setDarkMode] = useDarkMode();
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={onClose}>
@@ -35,13 +35,13 @@ export default function SettingsModal({ isOpen, onClose }: { isOpen: boolean; on
                   Settings
                 </Dialog.Title>
                 <div className="flex items-center justify-between">
-                    <span className="text-gray-700 dark:text-gray-300"> DarkMode </span>
-                    <button 
-                        onClick={() => setDarkMode(!darkMode)}
-                        className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-                    >
-                        {darkMode ? "Enabled" : "Disabled"}
-                    </button>
+                  <span className="text-gray-700 dark:text-gray-300"> DarkMode </span>
+                  <button
+                    onClick={() => setDarkMode(!darkMode)}
+                    className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                  >
+                    {darkMode ? "Enabled" : "Disabled"}
+                  </button>
                 </div>
                 <div className="mt-4 text-right">
                   <button
