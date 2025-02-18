@@ -33,7 +33,9 @@ export default function NewEntry() {
         value={newEntry.description}
         onChange={handleInputChange}
       />
-      <label htmlFor="scheduled_date" className="text-xs text-gray-900 dark:text-gray-100">Scheduled Date</label>
+      <label htmlFor="scheduled_date" className="text-xs text-gray-900 dark:text-gray-100">
+        Scheduled Date
+      </label>
       <input
         className="p-3 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
         type="date"
@@ -41,7 +43,9 @@ export default function NewEntry() {
         value={newEntry.scheduled_date ? new Date(newEntry.scheduled_date).toISOString().split("T")[0] : ""}
         onChange={handleInputChange}
       />
-      <label htmlFor="created_at" className="text-xs text-gray-900 dark:text-gray-100">Created At</label>
+      <label htmlFor="created_at" className="text-xs text-gray-900 dark:text-gray-100">
+        Created At
+      </label>
       <input
         className="p-3 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
         type="date"
