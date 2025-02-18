@@ -16,22 +16,21 @@ describe("server test", () => {
   describe("GET /get", () => {
     it("should return array of all entries", async () => {
       const mockEntries = [
-        { 
-          id: "1", 
-          title: "Title 1", 
-          description: "Desc 1", 
-          created_at: new Date("2020-01-01"), 
-          scheduled_date: new Date("2020-01-02")
+        {
+          id: "1",
+          title: "Title 1",
+          description: "Desc 1",
+          created_at: new Date("2020-01-01"),
+          scheduled_date: new Date("2020-01-02"),
         },
-        { 
-          id: "2", 
-          title: "Title 2", 
-          description: "Desc 2", 
-          created_at: new Date("2020-02-01"), 
-          scheduled_date: new Date("2020-02-02")
+        {
+          id: "2",
+          title: "Title 2",
+          description: "Desc 2",
+          created_at: new Date("2020-02-01"),
+          scheduled_date: new Date("2020-02-02"),
         },
       ];
-
 
       const expectedResponse = mockEntries.map(serializeEntry);
 
@@ -45,14 +44,14 @@ describe("server test", () => {
       expect(response.statusCode).toBe(200);
       expect(JSON.parse(response.payload)).toEqual(expectedResponse);
     });
-    
-    // The server.ts file does not contain a try catch blcok for getting all entries, 
-    
+
+    // The server.ts file does not contain a try catch blcok for getting all entries,
+
     // it("should return error if fetching fails", async () => {
     //   jest.spyOn(Prisma.entry, "findMany").mockRejectedValueOnce(new Error("Fetching failed"));
 
     //   const response = await server.inject({
-    //     method: "GET",    
+    //     method: "GET",
     //     url: "/get/",
     //   });
 
@@ -64,12 +63,12 @@ describe("server test", () => {
 
   describe("GET /get/:id", () => {
     it("should return single entry by id", async () => {
-      const mockEntry = { 
-        id: "1", 
-        title: "Title 1", 
-        description: "Desc 1", 
-        created_at: new Date("2021-03-03"), 
-        scheduled_date: new Date("2021-03-04")
+      const mockEntry = {
+        id: "1",
+        title: "Title 1",
+        description: "Desc 1",
+        created_at: new Date("2021-03-03"),
+        scheduled_date: new Date("2021-03-04"),
       };
       jest.spyOn(Prisma.entry, "findUnique").mockResolvedValueOnce(mockEntry);
 
@@ -79,7 +78,7 @@ describe("server test", () => {
       });
 
       expect(response.statusCode).toBe(200);
-     
+
       const expectedResponse = serializeEntry(mockEntry);
       expect(JSON.parse(response.payload)).toEqual(expectedResponse);
     });

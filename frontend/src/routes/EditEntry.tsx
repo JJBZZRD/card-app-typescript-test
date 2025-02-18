@@ -10,7 +10,7 @@ export default function EditEntry() {
   const { updateEntry, entries } = useContext(EntryContext) as EntryContextType;
   const [newEntry, setNewEntry] = useState<Entry>(emptyEntry);
   let navigate = useNavigate();
-  
+
   useEffect(() => {
     const entry = entries.filter((entry) => entry.id == id)[0];
     setNewEntry(entry);

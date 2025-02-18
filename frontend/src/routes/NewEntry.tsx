@@ -1,7 +1,7 @@
 import { ChangeEvent, MouseEvent, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Entry, EntryContextType } from "../@types/context";
 import { EntryContext } from "../utilities/globalContext";
-import { useNavigate } from "react-router-dom";
 
 export default function NewEntry() {
   const emptyEntry: Entry = { title: "", description: "", created_at: new Date(), scheduled_date: new Date() };
