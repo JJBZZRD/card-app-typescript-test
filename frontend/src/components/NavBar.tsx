@@ -8,19 +8,19 @@ export default function NavBar() {
 
   return (
     <>
-      <nav className="flex justify-center gap-5">
-        <NavLink className="m-3 p-4 text-xl bg-blue-400 hover:bg-blue-500 rounded-md font-medium text-white" to={"/"}>
+      <nav className="flex justify-center gap-5 p-4 bg-gray-100 dark:bg-gray-900">
+        <NavLink className="m-3 p-4 text-xl bg-blue-400 dark:bg-blue-700 hover:bg-blue-500 dark:hover:bg-blue-600 rounded-md font-medium text-white" to={"/"}>
           All Entries
         </NavLink>
         <NavLink
-          className="m-3 p-4 text-xl bg-blue-400 hover:bg-blue-500 rounded-md font-medium text-white"
+          className="m-3 p-4 text-xl bg-blue-400 dark:bg-blue-700 hover:bg-blue-500 dark:hover:bg-blue-600 rounded-md font-medium text-white"
           to={"/create"}
         >
           New Entry
         </NavLink>
         <button
           onClick={openSettings}
-          className="m-3 p-4 text-xl bg-blue-400 hover:bg-blue-500 rounded-md font-medium text-white"
+          className="m-3 p-4 text-xl bg-blue-400 dark:bg-blue-700 hover:bg-blue-500 dark:hover:bg-blue-600 rounded-md font-medium text-white"
         >
           Settings
         </button>
